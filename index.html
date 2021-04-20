@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+
+    <title>Spotify</title>
+    <style>
+        #upper-container {
+            background-color: powderblue;
+        }
+
+        #left-navbar {
+
+            height: 100%
+        }
+
+        #inner-canvas {
+
+            height: 91vh;
+
+        }
+
+        #music-control {
+            background-color: blue;
+            height: 7vh;
+        }
+
+        #frontpage {
+            height: 100%;
+
+            min-width: 100%;
+            overflow-y: scroll;
+
+        }
+
+        #albums {
+            height: 93vh;
+
+        }
+
+        #artists {
+            height: 93vh;
+
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Container - Entire Width -->
+    <div id="main-container" class="container-fluid p-0">
+        <div class="row no-gutters">
+            <div class="col-sm-3 col-md-2">
+                <!-- Upper Part Left - Nav Left -->
+                <div id="left-navbar" class="d-none d-sm-flex">
+                    <div class="container-fluid no-margin">
+                        <div class="d-flex flex-column justify-content-between" id="sidebar">
+                            <div class="d-flex flex-column align-start top-items ml-2 mt-3 top-icons">
+                                <a class="navbar-brand pl-2" href="#"><img src="./assets/logo1.png" height="40px" width="110px"
+                                        alt="" /></a>
+                                <a class="nav-link active mt-3" href="#">
+                                    <i class="fas fa-home"></i>Home<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="#"> <i class="fas fa-search"></i>Search</a>
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-compact-disc"></i>Your Library</a>
+                            </div>
+                            <div class="mid-icons">
+
+                                <div class="d-flex flex-column align-start top-items ml-2 mt-3 top-icons">
+
+                                    <a onclick=changeCanvas() class="nav-link active mt-3" href="#">
+                                        <i class="fas fa-home"></i>Home Page</a>
+                                    <a onclick=changeCanvas() class="nav-link" href="#"> <i
+                                            class="fas fa-search"></i>Artist Page</a>
+                                    <a onclick=changeCanvas() class="nav-link" href="#">
+                                        <i class="fas fa-compact-disc"></i>Album Page</a>
+                                </div>
+
+
+                            </div>
+
+                            <div class="bottom-icons">
+                                <div class="d-flex ml-3">
+                                    <a class="nav-link text-muted" href="#">
+                                        <i class="fas fa-download"></i>Install App</a>
+                                </div>
+                                <hr class="line-break" />
+                                <div class="d-flex mb-3">
+                                    <img id="profile-pic" src="./assets/pic.jpg" height="25px" alt="" />
+                                    <span class="mt-1 ml-2"><strong>Diego 'Ziba' Banovaz</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div id="inner-canvas" class="col-sm-8 col-md-10">
+                <!-- Upper Part Right - Main Content -->
+                <div id="frontpage" class="container p-0">
+                    <div class="container-fluid p-0">
+
+
+
+                        <div class="container-fluid album-container p-5" style="height: 100vh;">
+                            <nav class="navbar navbar-expand-md navbar-dark bg-none">
+                                <div class="container-fluid justify-content-center ">
+
+                                    <div class=" " style="flex-grow: 0;" id="navbarSupportedContent">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+                                            <li class="nav-item">
+                                                <a class="nav-link" onclick="underline()" href="#">TRENDING</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" onclick="underline()" href="#">PODCAST</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" onclick="underline()" href="#">MOODS AND GENERE</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" onclick="underline()" href="#">NEW RELEASES</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" onclick="underline()" href="#">DISCOVER</a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </nav>
+
+
+                            <h2 class="mt-5 text-break pl-5">#THROWBACKTHURSDAY</h2>
+
+                            <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 my-3 pl-5">
+                                <div class="col card-karaoke">
+                                    <div class="card" style="">
+                                        <img src="https://upload.wikimedia.org/wikipedia/en/d/df/RedHotChiliPeppersCalifornication.jpg"
+                                            class="card-img-top" alt="...">
+                                        <img src="./assets/811-8110601_spotify-logo-transparent-background-transparent-spotify-logo-black.png"
+                                            class="card-img-top logo-spotify-copyright" alt="..." style="">
+                                    </div>
+                                    <p>italian karaoke</p>
+
+                                </div>
+
+                                <div class="col card-karaoke justify-content-center">
+                                    <div class="card ">
+                                        <img src="./assets/Queen_The_Miracle.png" class="card-img-top" alt="...">
+                                        <img src="./assets/811-8110601_spotify-logo-transparent-background-transparent-spotify-logo-black.png"
+                                            class="card-img-top logo-spotify-copyright" alt="..." style="">
+
+                                    </div>
+                                    <p>italianish karaoke</p>
+
+
+
+
+                                </div>
+
+                                <div class="col card-karaoke">
+                                    <div class="card" style="">
+                                        <img src="./assets/91Ph+uTyyxL._AC_SL1500_.jpg" class="card-img-top" alt="...">
+                                        <img src="./assets/811-8110601_spotify-logo-transparent-background-transparent-spotify-logo-black.png"
+                                            class="card-img-top logo-spotify-copyright" alt="..." style="">
+                                    </div>
+                                    <p>italian karaoke</p>
+
+                                </div>
+                                <div class="col card-karaoke">
+                                    <div class="card" style="">
+                                        <img src="./assets/lze4funhxmr41.jpg" class="card-img-top" alt="...">
+                                        <img src="./assets/811-8110601_spotify-logo-transparent-background-transparent-spotify-logo-black.png"
+                                            class="card-img-top logo-spotify-copyright" alt="..." style="">
+                                    </div>
+                                    <p>italian karaoke</p>
+
+                                </div>
+                                <div class="col card-karaoke">
+                                    <div class="card" style="">
+                                        <img src="./assets/Queen_The_Miracle.png" class="card-img-top" alt="...">
+                                        <img src="./assets/811-8110601_spotify-logo-transparent-background-transparent-spotify-logo-black.png"
+                                            class="card-img-top logo-spotify-copyright" alt="..." style="">
+                                    </div>
+                                    <p>italian karaoke</p>
+
+                                </div>
+                                <div class="col card-karaoke">
+                                    <div class="card" style="">
+                                        <img src="./assets/SharedImage-8021.jpg" class="card-img-top" alt="...">
+                                        <img src="./assets/811-8110601_spotify-logo-transparent-background-transparent-spotify-logo-black.png"
+                                            class="card-img-top logo-spotify-copyright" alt="..." style="">
+                                    </div>
+                                    <p>italian karaoke</p>
+
+                                </div>
+
+
+                            </div>
+
+                            <h2 class="mt-5 pl-5">Classifiche</h2>
+                            <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 my-3 pl-5">
+
+                                <div class="col card-karaoke ">
+                                    <div class="card" style="">
+                                        <img src="./assets/42a5def8d3ba26643779afc8708239f4.jpg" class="card-img-top"
+                                            alt="...">
+                                        <img src="./assets/811-8110601_spotify-logo-transparent-background-transparent-spotify-logo-black.png"
+                                            class="card-img-top logo-spotify-copyright" alt="..." style="">
+                                    </div>
+                                    <p>italian karaoke</p>
+                                </div>
+                                <div class="col card-karaoke">
+                                    <div class="card" style="">
+                                        <img src="./assets/71CT3oWpR6L._AC_SX522_.jpg" class="card-img-top" alt="...">
+                                        <img src="./assets/811-8110601_spotify-logo-transparent-background-transparent-spotify-logo-black.png"
+                                            class="card-img-top logo-spotify-copyright" alt="..." style="">
+                                    </div>
+                                    <p>italian karaoke</p>
+                                </div>
+                                <div class="col card-karaoke">
+                                    <div class="card" style="">
+                                        <img src="./assets/download.jpg" class="card-img-top" alt="...">
+                                        <img src="./assets/811-8110601_spotify-logo-transparent-background-transparent-spotify-logo-black.png"
+                                            class="card-img-top logo-spotify-copyright" alt="..." style="">
+                                    </div>
+                                    <p>italian karaoke</p>
+
+                                </div>
+                                <div class="col card-karaoke">
+                                    <div class="card" style="">
+                                        <img src="./assets/Michaeljacksondangerous.jpg" class="card-img-top" alt="...">
+                                        <img src="./assets/811-8110601_spotify-logo-transparent-background-transparent-spotify-logo-black.png"
+                                            class="card-img-top logo-spotify-copyright" alt="..." style="">
+                                    </div>
+                                    <p>italian karaoke</p>
+
+                                </div>
+
+
+
+                            </div>
+                            <h2> Eminem </h2> 
+
+                            <button onclick=getEminem() class="btn btn-primary">Load Eminem Albums</button>
+                            <div id="eminem" class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 my-3 pl-5">
+
+                            </div>
+
+                            <h2> Metallica </h2>
+                            <div id="metallica" class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 my-3 pl-5">
+
+                            </div>
+
+                            <h2> Behemoth </h2>
+                            <div id="behemoth" class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 my-3 pl-5">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="artists" class="container-fluid d-none p-0">
+                    <div>
+                        <div class="container-fluid no-margin banner">
+
+                            <div id="main" class="d-flex flex-column align-items-center justify-content-end">
+                                <img class="bg-image" src="./assets/banner.jpg">
+                                <h6 class="text-muted mt-5">33,000,575 MONTHLY LISTENERS</h6>
+                                <h1>Queen</h1>
+
+                                <div class="buttons mt-3">
+                                    <button type="button" class="btn btn-sm btn1">PLAY</button>
+                                    <button type="button" class="btn btn-secondary btn-sm btn2">
+                                        FOLLOW
+                                    </button>
+                                    <i class="fas fa-ellipsis-h btn3"></i>
+                                </div>
+
+                                <ul class="d-flex mt-5 list">
+                                    <li class="px-4"><a onclick="underline1()" href="#">OVERVIEW</a></li>
+                                    <li class="px-4"><a onclick="underline1()" href="#">RELATED ARTISTS</a></li>
+                                    <li class="px-4"><a onclick="underline1()" href="#">ABOUT</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="container">
+
+                            <h3 class="mt-4 mb-2">Albums</h3>
+
+
+                            <div class="row" id="first">
+
+
+                                <div class="col-sm-6 col-md-2 album card-body">
+                                    <img src="./assets/1.jfif" class="img-fluid" height="250px" width="250px" alt="">
+                                    <h6>Bohemian Rhapsody (The Original Soundtrack)</h6>
+                                    <span class="text-muted">Queen</span>
+                                </div>
+                                <div class="col-sm-6 col-md-2 album card-body">
+                                    <img src="./assets/2.jfif" class="img-fluid" height="250px" width="250px" alt="">
+                                    <h6>On Air</h6>
+                                    <span class="text-muted">Queen</span>
+                                </div>
+                                <div class="col-sm-6 col-md-2 album card-body">
+                                    <img src="./assets/3.jfif" class="img-fluid" height="250px" width="250px" alt="">
+                                    <h6>A Night At The Odeon</h6>
+                                    <span class="text-muted">Queen</span>
+                                </div>
+                                <div class="col-sm-6 col-md-2 album card-body">
+                                    <img src="./assets/4.jfif" class="img-fluid" height="250px" width="250px" alt="">
+                                    <h6>Live At The Rainbow</h6>
+                                    <span class="text-muted">Queen</span>
+                                </div>
+                                <div class="col-sm-6 col-md-2 album card-body">
+                                    <img src="./assets/5.jfif" class="img-fluid" height="250px" width="250px" alt="">
+                                    <h6>Live At The Rainbow (Deluxe)</h6>
+                                    <span class="text-muted">Queen</span>
+                                </div>
+                                <div class="col-sm-6 col-md-2 album card-body">
+                                    <img src="./assets/7.jpg" class="img-fluid" height="250px" width="250px" alt="">
+                                    <h6>Hungarian Rhapsody (Live In Budapest/1986</h6>
+                                    <span class="text-muted">Queen</span>
+                                </div>
+
+
+                                <div class="col-sm-6 col-md-2 album card-body">
+                                    <img src="./assets/album.jpg" class="img-fluid" height="250px" width="250px" alt="">
+                                    <h6>Album Name</h6>
+                                    <span class="text-muted">Queen</span>
+                                </div>
+                                <div class="col-sm-6 col-md-2 album card-body">
+                                    <img src="./assets/album.jpg" class="img-fluid" height="250px" width="250px" alt="">
+                                    <h6>Album Name</h6>
+                                    <span class="text-muted">Queen</span>
+                                </div>
+                                <div class="col-sm-6 col-md-2 album card-body">
+                                    <img src="./assets/album.jpg" class="img-fluid" height="250px" width="250px" alt="">
+                                    <h6>Album Name </h6>
+                                    <span class="text-muted">Queen</span>
+                                </div>
+                                <div class="col-sm-6 col-md-2 album card-body">
+                                    <img src="./assets/album.jpg" class="img-fluid" height="250px" width="250px" alt="">
+                                    <h6>Album Name</h6>
+                                    <span class="text-muted">Queen</span>
+                                </div>
+                                <div class="col-sm-6 col-md-2 album card-body">
+                                    <img src="./assets/album.jpg" class="img-fluid" height="250px" width="250px" alt="">
+                                    <h6>Album Name</h6>
+                                    <span class="text-muted">Queen</span>
+                                </div>
+                                <div class="col-sm-6 col-md-2 album card-body">
+                                    <img src="./assets/album.jpg" class="img-fluid" height="250px" width="250px" alt="">
+                                    <h6>Album Name</h6>
+                                    <span class="text-muted">Queen</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+                <div id="albums" class="container-fluid d-none p-0">
+
+                    <div class="container p-0">
+                        <div class="row">
+
+                            <!-- Album picture and description -->
+
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                <div class=" mt-5 pt-2 container justify-content-center text-center">
+                                    <img src="./assets/QueenCover.jpg">
+                                    <h3 class=" mt-2">Queen II (Deluxe Edition 211 Remaster)</h3>
+                                    <p class="text-muted "><small>Queen</small></p>
+                                    <button type="button" class="btn btn-success play-button">PLAY</button>
+                                    <p class="text-muted mt-3"><small>1974 - 16 Songs</small></p>
+                                    <div><img src="./assets/heart.svg" class="filter-white mr-3"> <span><img src="./assets/more.svg"
+                                                class="filter-white"></span></div>
+                                </div>
+                            </div>
+
+                            <!-- Tracklist container -->
+
+                            <div class="col-sm-12 col-md-8 col-lg-8 mt-5">
+                                <div class="container ">
+
+                                    <table class="table table-borderless text-white" id="table">
+
+                                        <tbody>
+                                            <tr>
+                                                <div class="d-flex">
+                                                    <div class="p-2"><img src="./assets/musical-note.svg" class="filter-grey">
+                                                    </div>
+                                                    <div class="p-2">Procession - Remastered 2011<br>
+                                                        <p class="text-muted"><small>Queen</small></p>
+                                                    </div>
+                                                    <div class="ml-auto p-2 text-muted">1:13</div>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="d-flex">
+                                                    <div class="p-2"><img src="./assets/musical-note.svg" class="filter-grey">
+                                                    </div>
+                                                    <div class="p-2">Father to Son - Remastered 2011<br>
+                                                        <p class="text-muted"><small>Queen</small></p>
+                                                    </div>
+                                                    <div class="ml-auto p-2 text-muted">6:13</div>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="d-flex">
+                                                    <div class="p-2"><img src="./assets/musical-note.svg" class="filter-grey">
+                                                    </div>
+                                                    <div class="p-2">White Queen (As it began) - Remastered 2011<br>
+                                                        <p class="text-muted"><small>Queen</small></p>
+                                                    </div>
+                                                    <div class="ml-auto p-2 text-muted">4:33</div>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="d-flex">
+                                                    <div class="p-2"><img src="./assets/musical-note.svg" class="filter-grey">
+                                                    </div>
+                                                    <div class="p-2">Some Day One Day - Remastered 2011<br>
+                                                        <p class="text-muted"><small>Queen</small></p>
+                                                    </div>
+                                                    <div class="ml-auto p-2 text-muted">4:22</div>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="d-flex">
+                                                    <div class="p-2"><img src="./assets/musical-note.svg" class="filter-grey">
+                                                    </div>
+                                                    <div class="p-2">The Loser in the End - Remastered 2011<br>
+                                                        <p class="text-muted"><small>Queen</small></p>
+                                                    </div>
+                                                    <div class="ml-auto p-2 text-muted">4:01</div>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="d-flex">
+                                                    <div class="p-2"><img src="./assets/musical-note.svg" class="filter-grey">
+                                                    </div>
+                                                    <div class="p-2">Ogre Battle - Remastered 2011<br>
+                                                        <p class="text-muted"><small>Queen</small></p>
+                                                    </div>
+                                                    <div class="ml-auto p-2 text-muted">4:08</div>
+                                                </div>
+                                            </tr>
+
+                                            <tr>
+                                                <div class="d-flex">
+                                                    <div class="p-2"><img src="./assets/musical-note.svg" class="filter-grey">
+                                                    </div>
+                                                    <div class="p-2">The Fairy Feller's master-stroke - Remastered
+                                                        2011<br>
+                                                        <p class="text-muted"><small>Queen</small></p>
+                                                    </div>
+                                                    <div class="ml-auto p-2 text-muted">2:40</div>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="d-flex">
+                                                    <div class="p-2"><img src="./assets/musical-note.svg" class="filter-grey">
+                                                    </div>
+                                                    <div class="p-2">Nevermore - Remastered 2011<br>
+                                                        <p class="text-muted"><small>Queen</small></p>
+                                                    </div>
+                                                    <div class="ml-auto p-2 text-muted">1:18</div>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="d-flex">
+                                                    <div class="p-2"><img src="./assets/musical-note.svg" class="filter-grey">
+                                                    </div>
+                                                    <div class="p-2">The March of the Black Queen - Remastered 2011<br>
+                                                        <p class="text-muted"><small>Queen</small></p>
+                                                    </div>
+                                                    <div class="ml-auto p-2 text-muted">6:32</div>
+                                                </div>
+                                            </tr>
+
+                                            <tr>
+                                                <div class="d-flex">
+                                                    <div class="p-2"><img src="./assets/musical-note.svg" class="filter-grey">
+                                                    </div>
+                                                    <div class="p-2">Funny How Love is - Remastered 2011<br>
+                                                        <p class="text-muted"><small>Queen</small></p>
+                                                    </div>
+                                                    <div class="ml-auto p-2 text-muted">2:49</div>
+                                                </div>
+                                            </tr>
+
+                                            <tr>
+                                                <div class="d-flex">
+                                                    <div class="p-2"><img src="./assets/musical-note.svg" class="filter-grey">
+                                                    </div>
+                                                    <div class="p-2">Seven Seas of Rhye - Remastered 2011<br>
+                                                        <p class="text-muted"><small>Queen</small></p>
+                                                    </div>
+                                                    <div class="ml-auto p-2 text-muted">2:48</div>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="d-flex">
+                                                    <div class="p-2"><img src="./assets/musical-note.svg" class="filter-grey">
+                                                    </div>
+                                                    <div class="p-2">See What a fool I've Been - live BBC Session,
+                                                        London / July 1973 / 2011 Remix<br>
+                                                        <p class="text-muted"><small>Queen</small></p>
+                                                    </div>
+                                                    <div class="ml-auto p-2 text-muted">4:22</div>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                <div class="d-flex">
+                                                    <div class="p-2"><img src="./assets/musical-note.svg" class="filter-grey">
+                                                    </div>
+                                                    <div class="p-2">White Queen (As it Began) - Live at Hammersmith
+                                                        Odeon, London / December 1975<br>
+                                                        <p class="text-muted"><small>Queen</small></p>
+                                                    </div>
+                                                    <div class="ml-auto p-2 text-muted">5:32</div>
+                                                </div>
+                                            </tr>
+
+
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row d-none d-lg-block m-0">
+        <div class="col-12 p-0">
+            <!-- Lower Part of Main Container / Music Controls -->
+            <div id="music-control" class="container-fluid">
+
+                <div class="fixed-bottom navbar-dark bg-dark ">
+
+                    <div class="row d-flex justify-content-between">
+
+                        <div class="col-4 col-sm-6 col-md-4 justify-content-start no-gutters d-md-flex firstbox">
+                            <div class="row">
+                                <div class="col-4 col-sm-4 justify-content-center no-gutters">
+                                    <img class="m-2 album" style="filter:none !important" src="./QueenCover.jpg" />
+                                </div>
+                                <div class="col-8 col-sm-8 justify-content-center mt-4 no-gutters">
+                                    <p>Song for my Father <span>
+                                            <img class="ml-1 heart" src="./heart.svg">
+                                            <img class="ml-1 heart" src="./add.svg">
+                                        </span><br /><span class="text-muted"><small>Queen</small></span></p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-4 col-md-4  d-flex justify-content-center mt-2 media-bar">
+                            <div class="container ">
+
+                                <div class="row justify-content-center p-2">
+                                    <img class="m-1 p-2 multi-media" src="./shuffle-crossing-arrows.svg" /><img
+                                        class="m-1 p-2 multi-media" src="./previous.svg" />
+                                    <img class="m-1 " src="./play-button.svg" />
+                                    <img class="m-1 multi-media p-2" src="./next.svg" />
+                                    <img class="m-1 multi-media p-2" src="./exchange.svg" />
+                                </div>
+
+                                <div class="row">
+                                    <div class="slidecontainer">
+                                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-4 col-md-4 col-sm-6 d-none d-sm-flex justify-content-end">
+                            <div class="mt-5 mr-3 d-flex">
+                                <img class="mr-3" style="height:30px!important; width:30px !important"
+                                    src="./document.svg">
+                                <img class="mr-3" style="height:30px!important; width:30px !important"
+                                    src="./personal-computer.svg">
+                                <img class="mr-3" style="height:30px!important; width:30px !important"
+                                    src="./speaker-filled-audio-tool.svg">
+                                <div class="slidecontainer">
+                                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <script>
+        const changeCanvas = () => {
+
+            page = event.target.innerText
+
+            console.log(page);
+
+            let frontpage = document.getElementById("frontpage")
+            let artsits = document.getElementById("artists")
+            let albums = document.getElementById("albums")
+
+            switch (page) {
+                case "Home Page":
+                    frontpage.classList.remove("d-none")
+                    artsits.classList.add("d-none")
+                    albums.classList.add("d-none")
+                    break
+                case "Artist Page":
+                    frontpage.classList.add("d-none")
+                    artsits.classList.remove("d-none")
+                    albums.classList.add("d-none")
+                    break
+                case "Album Page":
+                    frontpage.classList.add("d-none")
+                    artsits.classList.add("d-none")
+                    albums.classList.remove("d-none")
+                    break
+            }
+        }
+
+
+
+        const underline = function () {
+
+            const links = document.querySelectorAll("#navbarSupportedContent a")
+
+            const self = event.target
+
+
+
+            for (const link of links) {
+                link.classList.remove("underline")
+            }
+            self.classList.add("underline")
+        }
+
+        const underline1 = function () {
+
+            const links = document.querySelectorAll("#artists .list a")
+            console.log(links);
+            const self = event.target
+
+
+
+            for (const link of links) {
+                link.classList.remove("underline")
+            }
+            self.classList.add("underline")
+        }
+
+        window.onload = () => {
+            
+            getMetallica();
+            getBehemoth();
+        }
+
+
+
+        const getEminem = () => {
+            fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-key": "9ecfaea264msh5b69f3d4f031056p18ec43jsn1aa1ffcc5c98",
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
+                }
+            }).then((response) => response.json())
+                .then(albums => {
+
+                    let album = albums.data
+
+
+                    const eminem = document.querySelector("#eminem")
+
+
+                    for (i = 0; i < album.length; i++) {
+
+
+                        let albumCover = document.createElement("div")
+
+                        albumCover.innerHTML = `<div class="col card-karaoke">
+                                    <div class="card" style="">
+                                        <img src="${album[i].album.cover}" class="card-img-top" alt="...">
+                                        <img src="./assets/811-8110601_spotify-logo-transparent-background-transparent-spotify-logo-black.png"
+                                            class="card-img-top logo-spotify-copyright" alt="..." style="">
+                                    </div>
+                                    <p>${album[i].album.title}</p>
+
+                                     </div>`
+                        eminem.appendChild(albumCover)
+
+                    }
+                })
+                .catch(err => {
+                   alert("Could not load, please try again!")
+
+                });
+        }
+
+        const getMetallica = () => {
+
+            fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=Metallica", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-key": "9ecfaea264msh5b69f3d4f031056p18ec43jsn1aa1ffcc5c98",
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
+                }
+            })
+                .then((response) =>
+                    response.json()
+                )
+                .then(albums => {
+
+
+                    let album = albums.data
+
+
+                    let metallica = document.querySelector("#metallica")
+
+
+                    for (i = 0; i < album.length; i++) {
+
+                        let albumCover = document.createElement("div")
+
+                        albumCover.innerHTML = `<div class="col card-karaoke">
+                                    <div class="card" style="">
+                                        <img src="${album[i].album.cover}" class="card-img-top" alt="...">
+                                        <img src="./assets/811-8110601_spotify-logo-transparent-background-transparent-spotify-logo-black.png"
+                                            class="card-img-top logo-spotify-copyright" alt="..." style="">
+                                    </div>
+                                    <p>${album[i].title}</p>
+
+                                     </div>`
+                        metallica.appendChild(albumCover)
+
+                    }
+
+                }
+
+                )
+                .catch(err => {
+
+                    metallica.innerText = "Could not load albums, try again!"
+                });
+
+
+        }
+
+
+        const getBehemoth = () => {
+            fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=Behemoth", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-key": "9ecfaea264msh5b69f3d4f031056p18ec43jsn1aa1ffcc5c98",
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
+                }
+            })
+
+                .then((response) =>
+                    response.json()
+                )
+                .then(albums => {
+                    console.log(albums);
+
+                    let album = albums.data
+
+                    console.log(album);
+                    let behemoth = document.querySelector("#behemoth")
+
+
+                    for (i = 0; i < album.length; i++) {
+
+                        let albumCover = document.createElement("div")
+
+                        albumCover.innerHTML = `<div class="col card-karaoke">
+                                    <div class="card" style="">
+                                        <img src="${album[i].album.cover}" class="card-img-top" alt="...">
+                                        <img src="./assets/811-8110601_spotify-logo-transparent-background-transparent-spotify-logo-black.png"
+                                            class="card-img-top logo-spotify-copyright" alt="..." style="">
+                                    </div>
+                                    <p>${album[i].title}</p>
+
+                                     </div>`
+                        behemoth.appendChild(albumCover)
+
+                    }
+
+                }
+
+                )
+                .catch(err => {
+
+                    behemoth.innerText = "Could not load albums, try again!"
+                });
+
+        }
+
+        fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=Behemoth", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-key": "9ecfaea264msh5b69f3d4f031056p18ec43jsn1aa1ffcc5c98",
+                    "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com"
+                }
+            })
+
+                .then((response) =>
+                    response.json()
+                )
+                .then(albums => {
+                    console.log(albums);}
+                )
+
+    </script>
+
+    <!-- Bootstrap logic -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -36,7 +36,7 @@ Create a function to remove a character at the specified position of a given str
 const removeChar = function (str, position) {
   return str.slice(0, position) + str.slice(position + 1);
 
-  // + str.slice(position)
+
 };
 
 // console.log(removeChar("hello", 2));
@@ -294,3 +294,4 @@ const acronym = function (phrase) {
 }
 
 // console.log(acronym("British Broadcasting Corporation"));
+
