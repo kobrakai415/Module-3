@@ -75,12 +75,15 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script>
-        // 1)
+        
+
+        let users = [];
+
         window.onload = () => {
             getUsers();
         };
 
-        let users = [];
+       
 
         // let x = 10;
         // console.log(x)
@@ -91,19 +94,18 @@
         // }
         // xvar()
 
-        // console.log(x)
+        console.log(users)
 
         const getUsers = async function () {
             const fetchData = await fetch(
                 "https://jsonplaceholder.typicode.com/users"
             );
-            const data = await fetchData.json();
-            users = data;
-            console.log(data);
+            users = await fetchData.json();
+            
             displayUser(users);
             justName(users);
             justAddresses(users);
-            sortIt(data);
+           
         };
 
         const displayUser = function (data) {
@@ -115,7 +117,7 @@
 
             data.forEach((user) => {
                 let tableRow = `<tr>
-                    <td>${user.name}</td>
+                    <td><a href="user.html?id=${user.id}">${user.name}</a></td>
                     <td>${user.username}</td>
                     <td>${user.email}</td>
                     <td>${user.phone}</td>
@@ -131,10 +133,6 @@
             const dropdown = document.getElementById("dropdown");
             const option = dropdown.value;
             const query = searchbar.value.toLowerCase();
-            console.log(option);
-            console.log(query);
-
-            console.log(users);
 
             let searchParameter = option;
 
@@ -146,7 +144,6 @@
                 );
             });
 
-            console.log(filteredUser);
 
             displayUser(filteredUser);
         };
@@ -154,7 +151,7 @@
         searchbar.addEventListener("keyup", searchUser);
 
         const justName = function (data) {
-            console.log(data.map((user) => user.name).sort());
+            console.log(data.map((user) => user.name))
         };
 
         const justAddresses = function (data) {
@@ -172,10 +169,19 @@
             });
         };
 
-        const sortIt = function(data){
-            data.sort();
-            displayUser(users)
+        const sortIt = function(){
+			order = order === "asc" ? "desc" : "asc"
+            const sortedUsers = users.sort((a, b) => 
+				order === "asc" ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)
+				// return -1 -> a is before b
+				// return 1 -> b is before a
+				// return 0 -> a and b are
+			);
+            displayUser(sortedUsers)
         }
+
+		let order = "asc"
+
         document.querySelector('button').addEventListener('click', sortIt);
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
