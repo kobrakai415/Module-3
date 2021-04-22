@@ -284,28 +284,27 @@ const spiralMatrix = function (n) {
 
 
 /**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
+ * @param {string} s
+ * @param {number} k
+ * @return {string}
  */
-/**
- * @param {ListNode} head
- * @return {boolean}
- */
-const isPalindrome = function (head) {
-  n = head.length
+ var licenseKeyFormatting = function(s, k) {
 
-  for (i = 0; i < n / 2; i++) {
+  let array = s.toUpperCase().split("-").join("").split("")
 
-    if (head[i] != head[n - 1 - i])
-      return false;
+  let length = array.length
+
+  for (i = length; i > 0; i = i - k) {
+
+    if (i != length) {
+      array[i - 1] = array[i - 1] + "-"
+    }
   }
 
-  return true;
-
+  return array.join("")
+ 
+  
 };
 
-
-console.log(isPalindrome([1, 2]))
+console.log(licenseKeyFormatting("5F3Z-2e-9-w",
+4));
