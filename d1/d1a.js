@@ -282,29 +282,28 @@ const spiralMatrix = function (n) {
 
 
 
+var findLengthOfLCIS = function(nums) {
+  let result = 1
+  let max = 0
 
-/**
- * @param {string} s
- * @param {number} k
- * @return {string}
- */
- var licenseKeyFormatting = function(s, k) {
-
-  let array = s.toUpperCase().split("-").join("").split("")
-
-  let length = array.length
-
-  for (i = length; i > 0; i = i - k) {
-
-    if (i != length) {
-      array[i - 1] = array[i - 1] + "-"
-    }
+  for(i = 0; i < nums.length; i++) {
+      if (nums[i] < nums[i + 1]) {
+          result += 1
+          
+      } else {
+          if(result > max) {
+            max = result
+            result = 1
+          }
+          
+      }
+  
   }
-
-  return array.join("")
- 
+  
+  
+  return max
   
 };
 
-console.log(licenseKeyFormatting("5F3Z-2e-9-w",
-4));
+
+console.log(findLengthOfLCIS([1,3,5,4,7]));

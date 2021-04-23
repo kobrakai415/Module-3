@@ -1,94 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-      crossorigin="anonymous"
-    />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Amazon</title>
-  </head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">Amazon</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <title>Amazon</title>
+</head>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./backoffice.html">Backoffice</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./productpage.html">Product Page<span class="sr-only"></span></a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-secondary" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Amazon</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div class="container">
-      <h2 class="my-3">Products on Sale <div id="loader"class="ml-3 d-none spinner-border text-info" role="status">
-        <span class="sr-only">Loading...</span> </h2>
-      <div class="row"></div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./backoffice.html">Backoffice</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./productpage.html">Product Page<span class="sr-only"></span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-secondary" type="submit">Search</button>
+      </form>
     </div>
+  </nav>
+
+  <div class="container">
+    <h2 class="my-3">Products on Sale <div id="loader" class="ml-3 d-none spinner-border text-info" role="status">
+        <span class="sr-only">Loading...</span> </h2>
+    <div class="row"></div>
+  </div>
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-    <!--
+  <!--
           
             You are building the new Amazon.
             This time you are also responsible for the back office.
@@ -127,60 +108,62 @@
             }   
         -->
 
-    <script>
-      let products = [];
+  <script>
+    let products = [];
 
-      console.log(products);
-      window.onload = async function () {
-        
-        let loader = document.getElementById("loader")
+    console.log(products);
+    window.onload = async function () {
 
-        loader.classList.remove("d-none")
-        
-        products = await loadProducts();
+      let loader = document.getElementById("loader")
 
-        
+      loader.classList.remove("d-none")
 
-        displayProducts(products);
-        
-        loader.classList.add("d-none")
-      };
+      products = await loadProducts();
 
-      async function loadProducts() {
+      displayProducts(products);
 
-        let loader = document.getElementById("loader")
+      loader.classList.add("d-none")
+    };
 
-        loader.classList.remove("d-none")
+    async function loadProducts() {
 
-        const response = await fetch(
-          "https://striveschool-api.herokuapp.com/api/product/",
-          {
-            headers: {
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgwMDk5OWIxZjBmYjAwMTVkOTE2ZmUiLCJpYXQiOjE2MTkwMDM4MDIsImV4cCI6MTYyMDIxMzQwMn0.BlddI7Zld2I_VyyffsNfxQiTZugSBmZwWaRYJCKGMtM",
-            },
-          }
-        );
+      let loader = document.getElementById("loader")
 
-        if (response.ok) {
-          const products = await response.json();
-          return products;
-        } else {
-          throw new Error("Failed to fetch events");
+      loader.classList.remove("d-none")
+
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/product/",
+        {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgwMDk5OWIxZjBmYjAwMTVkOTE2ZmUiLCJpYXQiOjE2MTkwMDM4MDIsImV4cCI6MTYyMDIxMzQwMn0.BlddI7Zld2I_VyyffsNfxQiTZugSBmZwWaRYJCKGMtM",
+          },
+
+       
         }
+      );
+
+
+
+      if (response.ok) {
+        const products = await response.json();
+        return products;
+      } else {
+        throw new Error("Failed to fetch events");
       }
+    }
 
-      const productSection = document.querySelector(".row");
+    const productSection = document.querySelector(".row");
 
-      productSection.innerHTML = ""
+    productSection.innerHTML = ""
 
-      function displayProducts(products) {
-
-
-        products.forEach((product) => {
+    function displayProducts(products) {
 
 
-          let productCard = ` <div class="col-6-md-4 col-lg-4"> <div class=" shadow p-3 mb-5 bg-white rounded m-1 card" style="width: 18rem;">
+      products.forEach((product) => {
+
+
+        let productCard = ` <div class="col-6-md-4 col-lg-4"> <div class=" shadow p-3 mb-5 bg-white rounded m-1 card" style="width: 18rem;">
         <img src=${product.imageUrl} height="300" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">${product.name}</h5>
@@ -197,39 +180,36 @@
     </div>
     `;
 
-          productSection.innerHTML += productCard;
-        });
-      }
+        productSection.innerHTML += productCard;
+      });
+    }
 
-      const searchField = document.querySelector("[type='search']");
+    const searchField = document.querySelector("[type='search']");
 
-      const filtered = function () {
-        
-        productSection.innerHTML = ""
-        
-        const filteredProduct = products.filter((product) => {
-          return product.name.toLowerCase().indexOf(searchField.value.toLowerCase()) !== -1
-        });
-        
-        displayProducts(filteredProduct)
-    
-      };
+    const filtered = function () {
 
-      searchField.addEventListener("keyup", filtered);
+      productSection.innerHTML = ""
+
+      const filteredProduct = products.filter((product) => {
+        return product.name.toLowerCase().indexOf(searchField.value.toLowerCase()) !== -1
+      });
+
+      displayProducts(filteredProduct)
+
+    };
+
+    searchField.addEventListener("keyup", filtered);
 
 
 
-    </script>
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  </script>
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
