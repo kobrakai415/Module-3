@@ -19,9 +19,16 @@
             color: black;
         }
 
-        #comedy .row {
-            overflow-x: auto;
+        #comedy .d-flex {
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+    
         }
+
+        #comedy .d-flex::-webkit-scrollbar {
+            display: none
+        }
+
     </style>
     <title>Strive-Netflix</title>
 </head>
@@ -150,8 +157,10 @@
 
 
     <div id="categories">
-        <div class="cointainer fluid ml-4 mr-4 mb-5">
-            <h5 class="mt-3" id="movies">Action</h5>
+
+        
+        <div class="container-fluid  mb-5">
+            <h3 class="mt-3" id="movies">Action</h3>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -324,8 +333,8 @@
 
                 let contentSection =
                     `
-                    <div id=${cat} class="cointainer fluid ml-4 mr-4 mb-5">
-            <h5 class="mt-3" >${cat.charAt(0).toUpperCase() + cat.slice(1)}</h5>
+                    <div   class="container-fluid mb-5">
+            <h3 class="mt-3" >${cat.charAt(0).toUpperCase() + cat.slice(1)}</h3>
             <div id=${cat} class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -340,7 +349,7 @@
 
                     <div class="carousel-item active">
                         <div class="movie-row1">
-                            <div class="row"> 
+                            <div class="d-flex"> 
 
 
 
@@ -360,30 +369,30 @@
 
                 categories.innerHTML += contentSection
 
-            if(i % 6 === 0) {
+            // if(i % 6 === 0) {
 
-                const innerCarousel = document.querySelector(`#${cat} .inner-carousel`)
+            //     const innerCarousel = document.querySelector(`#${cat} .inner-carousel`)
 
-                let newRow = `  <div class="carousel-item ">
-                        <div class="movie-row1">
-                            <div class="row"> 
-
-
-
-
-
-                            </div>
-                        </div>
-                    </div>`
-
-                    innerCarousel.innerHTML += newRow
-            }
+            //     let newRow = `  <div class="carousel-item ">
+            //             <div class="movie-row1">
+            //                 <div class="row"> 
 
 
 
 
 
-                catContentSection = document.querySelector(`#${cat} .row`)
+            //                 </div>
+            //             </div>
+            //         </div>`
+
+            //         innerCarousel.innerHTML += newRow
+            // }
+
+
+
+
+
+                catContentSection = document.querySelector(`#${cat} .d-flex`)
                     console.log(catContentSection);
 
 
@@ -396,8 +405,8 @@
                     
 
                     let filmBox = `<div id=${film._id} class="col-md-2">
-                                    <strong class="text-truncate">${film.name}</strong>
-                                    <img class="d-block w-100" src=${film.imageUrl}>
+                                    <span class="text-truncate">${film.name}</span>
+                                    <img height="250px" class="d-block w-80" src=${film.imageUrl}>
                                         <p style="">${film.description}</p>
                                     </div>`
 
@@ -413,7 +422,7 @@
 
 
 
-        
+
         async function getCategories() {
 
             const categoryResponse = await fetch("https://striveschool-api.herokuapp.com/api/movies/", {
